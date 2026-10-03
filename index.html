@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffb5d0" />
+    <meta name="description" content="一枚硬币，一次翻页。可以自由观察、打开和更换画页的 3D 机械存钱箱。" />
+    <title>久留美的小金库</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23ff78a6'/%3E%3Cpath d='M10 9l6 7 6-7m-6 7v8m-5-6h10m-10 4h10' fill='none' stroke='%23fff7c7' stroke-width='2'/%3E%3C/svg%3E" />
+  </head>
+  <body data-theme="kurumi">
+    <div class="page-shell">
+    <canvas id="ambient-chart" class="ambient-chart" width="1440" height="600" aria-hidden="true"></canvas>
+    <svg class="frame-sparkle" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 3C33 22 38 27 57 30C38 33 33 38 30 57C27 38 22 33 3 30C22 27 27 22 30 3Z"/></svg>
+    <header class="site-header">
+      <a class="wordmark" href="./" aria-label="久留美的小金库首页"><span class="mark" aria-hidden="true">¥</span><span class="brand-copy"><span class="brand-name">久留美的小金库</span><span class="brand-kana" aria-hidden="true">くるみの貯金箱</span></span></a>
+      <div class="header-right"><span class="edition" hidden></span><button id="sound" class="icon-button" aria-label="开启声音" aria-pressed="false"></button><button id="settings" class="icon-button" aria-label="打开箱体与画页设置"></button></div>
+    </header>
+    <main class="workspace">
+      <section class="stage" aria-label="可交互的三维翻页存钱箱">
+        <div class="stage-heading" hidden><span class="eyebrow">COIN-OPERATED FLIPBOOK</span><span class="stage-caption">久留美的随机行情</span></div>
+        <div class="scene-window"><div id="viewport" tabindex="0" role="application" aria-label="三维存钱箱。拖动旋转，滚轮或双指缩放。方向键旋转，空格投币，Enter拨一页。">
+          <div id="loading" class="loading"><span class="loading-wheel"></span><span>久留美正在盯盘…</span></div>
+          <div id="fallback" class="fallback" hidden><p>这个浏览器暂时无法打开 3D 场景。</p><p>请开启硬件加速，或使用支持 WebGL 2 的浏览器。</p><button id="reload" class="secondary-button">重新打开</button></div>
+        </div>
+        <div id="impact" class="impact" aria-hidden="true"></div>
+        <div id="loss-cut" class="loss-cut" hidden aria-label="强制平仓的角色反应">
+          <div class="loss-cut-card"><button id="loss-dismiss" class="loss-dismiss" aria-label="关闭强制平仓反应">✕</button><div class="loss-face" aria-hidden="true"></div><div class="loss-copy"><span class="loss-kana">強制ロスカット</span><strong>强制平仓！</strong><p>……我的硬币呢？</p><button id="loss-peek">开盖看看 <span aria-hidden="true">↗</span></button></div></div>
+        </div></div><div class="stage-tools"><div class="view-buttons"><button id="front" class="tool-button"></button><button id="inside" class="tool-button" aria-pressed="false"></button></div></div>
+      </section>
+      <aside class="play-panel">
+        <svg class="panel-sparkle" viewBox="0 0 70 70" aria-hidden="true"><path d="M28 3C31 21 35 25 53 28C35 31 31 35 28 53C25 35 21 31 3 28C21 25 25 21 28 3Z"/><path d="M56 40C58 49 60 51 69 53C60 55 58 57 56 66C54 57 52 55 43 53C52 51 54 49 56 40Z"/></svg><div class="panel-intro"><span class="eyebrow">くるみ</span><h1 id="quote">这次，<br />一定赚回来。</h1><p hidden></p></div>
+        <div class="result-card" id="result-card" data-kind="idle"><div class="result-top"><span id="state-label">浮动盈亏</span><span id="page-label" class="mono" hidden>01 / 24</span></div><div class="result-value" id="result-value">—<span> %</span></div><p id="result-note" hidden>行情还没开场，硬币先准备好。</p><div class="result-progress"><div id="progress"></div></div></div>
+        <button id="insert" class="insert-button" disabled><span class="button-coin" aria-hidden="true">1</span><span id="insert-label">投币</span></button>
+        <div class="coin-count"><span>小金库</span><strong id="coin-count">00</strong><span>枚</span><span id="collection-label" class="collection-label" hidden></span></div>
+        <div class="small-note" hidden><span class="tiny-rule"></span><p>转到一个随机画页，然后停下。<br />好运和坏运气，都是这里的小剧情。</p></div>
+      </aside>
+    </main>
+    <footer class="site-footer"><span class="creator-credit">作者 M1kywuu</span><button id="about" class="text-button">关于这只箱子</button></footer>
+    <dialog id="settings-dialog" class="settings-dialog"><form method="dialog"><div class="dialog-header"><div><span class="eyebrow">换一只箱子</span><h2>箱体与画页</h2></div><button class="icon-button close-dialog" value="close" aria-label="关闭设置">✕</button></div></form><div class="settings-content"><label class="field-label" for="shell-choice">箱体外观</label><div class="shell-choices" id="shell-choice"><button data-shell="cream" class="shell-choice selected" aria-pressed="true"><span class="swatch cream-swatch"></span>奶油圆角</button><button data-shell="wood" class="shell-choice" aria-pressed="false"><span class="swatch wood-swatch"></span>木质经典</button><button data-shell="mint" class="shell-choice" aria-pressed="false"><span class="swatch mint-swatch"></span>薄荷圆角</button></div><div class="settings-rule"></div><label class="field-label" for="pages-upload">更换翻页内容</label><p class="field-description">选择 8–24 张图片，按文件名装入。图片只在当前页面使用。</p><label class="upload-button" for="pages-upload">换一套画页<input id="pages-upload" type="file" accept="image/png,image/jpeg,image/webp" multiple /></label><p id="upload-feedback" class="upload-feedback" aria-live="polite"></p><div class="reset-actions"><button id="restore" class="text-button restore">恢复久留美画页</button><button id="restart" class="text-button restore">重新开始</button></div><div class="settings-rule"></div><button id="slow" class="tool-button" aria-pressed="false"></button></div></dialog>
+    <dialog id="about-dialog" class="about-dialog">
+      <form method="dialog"><div class="dialog-header"><h2>回本？回本！</h2><button class="icon-button close-dialog" value="close" aria-label="关闭说明">✕</button></div></form>
+      <p class="about-banter">涨了：我果然是天才。<br />跌了：只是回调，问题不大。<br />强平了：……我的硬币呢？</p>
+      <p>久留美负责盯盘，小箱子负责藏硬币。<br />赚也好，亏也好，开盖看看——硬币一枚没少。</p>
+      <p class="about-small">非官方二创小玩具。模拟行情，真实破防（大概）。</p>
+      <div class="about-links"><a href="https://www.bilibili.com/video/BV1pEa66NEct/" target="_blank" rel="noreferrer">灵感：奈櫻Nine的翻页存钱箱</a><br /><a href="https://fxkurumi-info.com/" target="_blank" rel="noreferrer">去动画官网串门 ↗</a></div>
+    </dialog>
+    </div><div id="announcement" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-03",
+  "status": "passed",
+  "checkedCardFrameCrossings": 11148,
+  "coinCollidersUnchanged": 23,
+  "realCoinSlit": true,
+  "roundedSilhouette": true,
+  "shellSwitchRetainsOpenState": true,
+  "browserCoinRoundPassed": true,
+  "mobileShellChoiceOverflow": false
+}

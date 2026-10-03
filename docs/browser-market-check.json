@@ -1,0 +1,803 @@
+{
+  "elapsedSeconds": 8.841,
+  "profitLossReversals": 29,
+  "impacts": [
+    "",
+    "等一下？！",
+    "涨了！！"
+  ],
+  "finished": true,
+  "samples": [
+    {
+      "elapsedMs": 416,
+      "busy": true,
+      "impact": "",
+      "quote": "这次，一定赚回来。",
+      "value": "+34%"
+    },
+    {
+      "elapsedMs": 621,
+      "busy": true,
+      "impact": "",
+      "quote": "这次，一定赚回来。",
+      "value": "+34%"
+    },
+    {
+      "elapsedMs": 714,
+      "busy": true,
+      "impact": "",
+      "quote": "这次，一定赚回来。",
+      "value": "+34%"
+    },
+    {
+      "elapsedMs": 800,
+      "busy": true,
+      "impact": "",
+      "quote": "这次，一定赚回来。",
+      "value": "+34%"
+    },
+    {
+      "elapsedMs": 874,
+      "busy": true,
+      "impact": "",
+      "quote": "这次，一定赚回来。",
+      "value": "+34%"
+    },
+    {
+      "elapsedMs": 948,
+      "busy": true,
+      "impact": "",
+      "quote": "这次，一定赚回来。",
+      "value": "+34%"
+    },
+    {
+      "elapsedMs": 1024,
+      "busy": true,
+      "impact": "",
+      "quote": "这次，一定赚回来。",
+      "value": "+34%"
+    },
+    {
+      "elapsedMs": 1105,
+      "busy": true,
+      "impact": "",
+      "quote": "这次，一定赚回来。",
+      "value": "+33%"
+    },
+    {
+      "elapsedMs": 1173,
+      "busy": true,
+      "impact": "",
+      "quote": "这次，一定赚回来。",
+      "value": "+32%"
+    },
+    {
+      "elapsedMs": 1258,
+      "busy": true,
+      "impact": "",
+      "quote": "这次，一定赚回来。",
+      "value": "+27%"
+    },
+    {
+      "elapsedMs": 1339,
+      "busy": true,
+      "impact": "",
+      "quote": "这次，一定赚回来。",
+      "value": "+18%"
+    },
+    {
+      "elapsedMs": 1413,
+      "busy": true,
+      "impact": "",
+      "quote": "这次，一定赚回来。",
+      "value": "+6%"
+    },
+    {
+      "elapsedMs": 1485,
+      "busy": true,
+      "impact": "",
+      "quote": "这次，一定赚回来。",
+      "value": "−11%"
+    },
+    {
+      "elapsedMs": 1560,
+      "busy": true,
+      "impact": "",
+      "quote": "这次，一定赚回来。",
+      "value": "−30%"
+    },
+    {
+      "elapsedMs": 1638,
+      "busy": true,
+      "impact": "",
+      "quote": "诶？刚刚还在涨啊？",
+      "value": "−46%"
+    },
+    {
+      "elapsedMs": 1708,
+      "busy": true,
+      "impact": "",
+      "quote": "诶？刚刚还在涨啊？",
+      "value": "−52%"
+    },
+    {
+      "elapsedMs": 1789,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "诶？刚刚还在涨啊？",
+      "value": "−54%"
+    },
+    {
+      "elapsedMs": 1863,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "诶？刚刚还在涨啊？",
+      "value": "−71%"
+    },
+    {
+      "elapsedMs": 1928,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "不、不会吧……",
+      "value": "−102%"
+    },
+    {
+      "elapsedMs": 1989,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "不、不会吧……",
+      "value": "−130%"
+    },
+    {
+      "elapsedMs": 2056,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "不、不会吧……",
+      "value": "−143%"
+    },
+    {
+      "elapsedMs": 2134,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "不、不会吧……",
+      "value": "−125%"
+    },
+    {
+      "elapsedMs": 2214,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "诶？刚刚还在涨啊？",
+      "value": "−19%"
+    },
+    {
+      "elapsedMs": 2296,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "诶？刚刚还在涨啊？",
+      "value": "+72%"
+    },
+    {
+      "elapsedMs": 2371,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "诶？刚刚还在涨啊？",
+      "value": "+72%"
+    },
+    {
+      "elapsedMs": 2439,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "诶？刚刚还在涨啊？",
+      "value": "+57%"
+    },
+    {
+      "elapsedMs": 2508,
+      "busy": true,
+      "impact": "",
+      "quote": "再涨一点，就一点。",
+      "value": "+48%"
+    },
+    {
+      "elapsedMs": 2587,
+      "busy": true,
+      "impact": "",
+      "quote": "再涨一点，就一点。",
+      "value": "+22%"
+    },
+    {
+      "elapsedMs": 2662,
+      "busy": true,
+      "impact": "",
+      "quote": "再涨一点，就一点。",
+      "value": "−60%"
+    },
+    {
+      "elapsedMs": 2747,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "再涨一点，就一点。",
+      "value": "−63%"
+    },
+    {
+      "elapsedMs": 2823,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "诶？刚刚还在涨啊？",
+      "value": "+19%"
+    },
+    {
+      "elapsedMs": 2892,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "诶？刚刚还在涨啊？",
+      "value": "+37%"
+    },
+    {
+      "elapsedMs": 2965,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "诶？刚刚还在涨啊？",
+      "value": "−7%"
+    },
+    {
+      "elapsedMs": 3028,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "诶？刚刚还在涨啊？",
+      "value": "−21%"
+    },
+    {
+      "elapsedMs": 3097,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "没事。只是回调。",
+      "value": "−36%"
+    },
+    {
+      "elapsedMs": 3171,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "没事。只是回调。",
+      "value": "−41%"
+    },
+    {
+      "elapsedMs": 3240,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "没事。只是回调。",
+      "value": "+98%"
+    },
+    {
+      "elapsedMs": 3307,
+      "busy": true,
+      "impact": "涨了！！",
+      "quote": "没事。只是回调。",
+      "value": "+128%"
+    },
+    {
+      "elapsedMs": 3369,
+      "busy": true,
+      "impact": "涨了！！",
+      "quote": "看吧，我就知道会涨！",
+      "value": "+6%"
+    },
+    {
+      "elapsedMs": 3431,
+      "busy": true,
+      "impact": "涨了！！",
+      "quote": "看吧，我就知道会涨！",
+      "value": "−28%"
+    },
+    {
+      "elapsedMs": 3497,
+      "busy": true,
+      "impact": "涨了！！",
+      "quote": "看吧，我就知道会涨！",
+      "value": "+10%"
+    },
+    {
+      "elapsedMs": 3570,
+      "busy": true,
+      "impact": "涨了！！",
+      "quote": "看吧，我就知道会涨！",
+      "value": "−8%"
+    },
+    {
+      "elapsedMs": 3653,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "不、不会吧……",
+      "value": "−106%"
+    },
+    {
+      "elapsedMs": 3722,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "不、不会吧……",
+      "value": "−52%"
+    },
+    {
+      "elapsedMs": 3787,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "不、不会吧……",
+      "value": "−30%"
+    },
+    {
+      "elapsedMs": 3859,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "不、不会吧……",
+      "value": "+85%"
+    },
+    {
+      "elapsedMs": 3927,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "看吧，我就知道会涨！",
+      "value": "+42%"
+    },
+    {
+      "elapsedMs": 4008,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "看吧，我就知道会涨！",
+      "value": "−2%"
+    },
+    {
+      "elapsedMs": 4089,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "看吧，我就知道会涨！",
+      "value": "−61%"
+    },
+    {
+      "elapsedMs": 4163,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "看吧，我就知道会涨！",
+      "value": "+99%"
+    },
+    {
+      "elapsedMs": 4239,
+      "busy": true,
+      "impact": "涨了！！",
+      "quote": "我是不是很有天赋？",
+      "value": "+59%"
+    },
+    {
+      "elapsedMs": 4319,
+      "busy": true,
+      "impact": "涨了！！",
+      "quote": "我是不是很有天赋？",
+      "value": "−15%"
+    },
+    {
+      "elapsedMs": 4382,
+      "busy": true,
+      "impact": "涨了！！",
+      "quote": "我是不是很有天赋？",
+      "value": "−176%"
+    },
+    {
+      "elapsedMs": 4456,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "我是不是很有天赋？",
+      "value": "−110%"
+    },
+    {
+      "elapsedMs": 4521,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "不、不会吧……",
+      "value": "−73%"
+    },
+    {
+      "elapsedMs": 4594,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "不、不会吧……",
+      "value": "+61%"
+    },
+    {
+      "elapsedMs": 4677,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "不、不会吧……",
+      "value": "−11%"
+    },
+    {
+      "elapsedMs": 4751,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "不、不会吧……",
+      "value": "+35%"
+    },
+    {
+      "elapsedMs": 4834,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "再涨一点，就一点。",
+      "value": "+45%"
+    },
+    {
+      "elapsedMs": 4894,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "再涨一点，就一点。",
+      "value": "+34%"
+    },
+    {
+      "elapsedMs": 4970,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "再涨一点，就一点。",
+      "value": "−47%"
+    },
+    {
+      "elapsedMs": 5031,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "再涨一点，就一点。",
+      "value": "−80%"
+    },
+    {
+      "elapsedMs": 5107,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "不、不会吧……",
+      "value": "−137%"
+    },
+    {
+      "elapsedMs": 5187,
+      "busy": true,
+      "impact": "",
+      "quote": "不、不会吧……",
+      "value": "+73%"
+    },
+    {
+      "elapsedMs": 5267,
+      "busy": true,
+      "impact": "",
+      "quote": "不、不会吧……",
+      "value": "+53%"
+    },
+    {
+      "elapsedMs": 5340,
+      "busy": true,
+      "impact": "",
+      "quote": "这次，一定赚回来。",
+      "value": "+14%"
+    },
+    {
+      "elapsedMs": 5415,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "这次，一定赚回来。",
+      "value": "−71%"
+    },
+    {
+      "elapsedMs": 5486,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "这次，一定赚回来。",
+      "value": "+20%"
+    },
+    {
+      "elapsedMs": 5563,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "这次，一定赚回来。",
+      "value": "+12%"
+    },
+    {
+      "elapsedMs": 5643,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "没事。只是回调。",
+      "value": "−22%"
+    },
+    {
+      "elapsedMs": 5813,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "没事。只是回调。",
+      "value": "+102%"
+    },
+    {
+      "elapsedMs": 5870,
+      "busy": true,
+      "impact": "涨了！！",
+      "quote": "没事。只是回调。",
+      "value": "+127%"
+    },
+    {
+      "elapsedMs": 5944,
+      "busy": true,
+      "impact": "涨了！！",
+      "quote": "再涨一点，就一点。",
+      "value": "−19%"
+    },
+    {
+      "elapsedMs": 6007,
+      "busy": true,
+      "impact": "涨了！！",
+      "quote": "再涨一点，就一点。",
+      "value": "−22%"
+    },
+    {
+      "elapsedMs": 6077,
+      "busy": true,
+      "impact": "涨了！！",
+      "quote": "再涨一点，就一点。",
+      "value": "+16%"
+    },
+    {
+      "elapsedMs": 6161,
+      "busy": true,
+      "impact": "涨了！！",
+      "quote": "再涨一点，就一点。",
+      "value": "−52%"
+    },
+    {
+      "elapsedMs": 6239,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "不、不会吧……",
+      "value": "−106%"
+    },
+    {
+      "elapsedMs": 6322,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "不、不会吧……",
+      "value": "−49%"
+    },
+    {
+      "elapsedMs": 6400,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "不、不会吧……",
+      "value": "−24%"
+    },
+    {
+      "elapsedMs": 6468,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "不、不会吧……",
+      "value": "+58%"
+    },
+    {
+      "elapsedMs": 6534,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "看吧，我就知道会涨！",
+      "value": "+85%"
+    },
+    {
+      "elapsedMs": 6614,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "看吧，我就知道会涨！",
+      "value": "+30%"
+    },
+    {
+      "elapsedMs": 6695,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "看吧，我就知道会涨！",
+      "value": "+7%"
+    },
+    {
+      "elapsedMs": 6757,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "看吧，我就知道会涨！",
+      "value": "−24%"
+    },
+    {
+      "elapsedMs": 6822,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "没事。只是回调。",
+      "value": "−60%"
+    },
+    {
+      "elapsedMs": 6903,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "没事。只是回调。",
+      "value": "−43%"
+    },
+    {
+      "elapsedMs": 6971,
+      "busy": true,
+      "impact": "",
+      "quote": "没事。只是回调。",
+      "value": "+51%"
+    },
+    {
+      "elapsedMs": 7050,
+      "busy": true,
+      "impact": "",
+      "quote": "我是不是很有天赋？",
+      "value": "+111%"
+    },
+    {
+      "elapsedMs": 7123,
+      "busy": true,
+      "impact": "涨了！！",
+      "quote": "我是不是很有天赋？",
+      "value": "+101%"
+    },
+    {
+      "elapsedMs": 7202,
+      "busy": true,
+      "impact": "涨了！！",
+      "quote": "我是不是很有天赋？",
+      "value": "+54%"
+    },
+    {
+      "elapsedMs": 7277,
+      "busy": true,
+      "impact": "涨了！！",
+      "quote": "我是不是很有天赋？",
+      "value": "+28%"
+    },
+    {
+      "elapsedMs": 7342,
+      "busy": true,
+      "impact": "涨了！！",
+      "quote": "再涨一点，就一点。",
+      "value": "+25%"
+    },
+    {
+      "elapsedMs": 7417,
+      "busy": true,
+      "impact": "涨了！！",
+      "quote": "再涨一点，就一点。",
+      "value": "−28%"
+    },
+    {
+      "elapsedMs": 7485,
+      "busy": true,
+      "impact": "涨了！！",
+      "quote": "再涨一点，就一点。",
+      "value": "−103%"
+    },
+    {
+      "elapsedMs": 7547,
+      "busy": true,
+      "impact": "涨了！！",
+      "quote": "再涨一点，就一点。",
+      "value": "−155%"
+    },
+    {
+      "elapsedMs": 7629,
+      "busy": true,
+      "impact": "涨了！！",
+      "quote": "等一下！等一下！！",
+      "value": "−177%"
+    },
+    {
+      "elapsedMs": 7703,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "等一下！等一下！！",
+      "value": "−175%"
+    },
+    {
+      "elapsedMs": 7787,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "等一下！等一下！！",
+      "value": "−162%"
+    },
+    {
+      "elapsedMs": 7874,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "等一下！等一下！！",
+      "value": "−141%"
+    },
+    {
+      "elapsedMs": 7955,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "等一下！等一下！！",
+      "value": "−121%"
+    },
+    {
+      "elapsedMs": 8024,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "不、不会吧……",
+      "value": "−108%"
+    },
+    {
+      "elapsedMs": 8090,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "不、不会吧……",
+      "value": "−99%"
+    },
+    {
+      "elapsedMs": 8163,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "不、不会吧……",
+      "value": "−94%"
+    },
+    {
+      "elapsedMs": 8234,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "不、不会吧……",
+      "value": "−91%"
+    },
+    {
+      "elapsedMs": 8289,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "不、不会吧……",
+      "value": "−90%"
+    },
+    {
+      "elapsedMs": 8356,
+      "busy": true,
+      "impact": "等一下？！",
+      "quote": "不、不会吧……",
+      "value": "−89%"
+    },
+    {
+      "elapsedMs": 8410,
+      "busy": true,
+      "impact": "",
+      "quote": "不、不会吧……",
+      "value": "−89%"
+    },
+    {
+      "elapsedMs": 8484,
+      "busy": true,
+      "impact": "",
+      "quote": "不、不会吧……",
+      "value": "−89%"
+    },
+    {
+      "elapsedMs": 8554,
+      "busy": true,
+      "impact": "",
+      "quote": "不、不会吧……",
+      "value": "−89%"
+    },
+    {
+      "elapsedMs": 8631,
+      "busy": true,
+      "impact": "",
+      "quote": "不、不会吧……",
+      "value": "−89%"
+    },
+    {
+      "elapsedMs": 8703,
+      "busy": true,
+      "impact": "",
+      "quote": "不、不会吧……",
+      "value": "−89%"
+    },
+    {
+      "elapsedMs": 8769,
+      "busy": true,
+      "impact": "",
+      "quote": "不、不会吧……",
+      "value": "−89%"
+    },
+    {
+      "elapsedMs": 8841,
+      "busy": false,
+      "impact": "",
+      "quote": "不、不会吧……",
+      "value": "−89%"
+    }
+  ]
+}

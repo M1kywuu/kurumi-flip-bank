@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "testedPhases": 10001,
+  "leafPairsPerPhase": 276,
+  "minimumCardCentrelineMM": 0.6844,
+  "minimumBodyClearanceMM": 0.5044,
+  "minimumAt": {
+    "q": 0.9871,
+    "i": 13,
+    "j": 14
+  },
+  "stopTransitions": 4760,
+  "cartridgeSizes": 17,
+  "simulatedPagesVerified": 24,
+  "continuousCandles": 120,
+  "sharedCandlesPerPage": 26,
+  "lowestRearTipMM": 69,
+  "rigidBodyCoinsPassed": 32,
+  "gainPages": 12,
+  "lossPages": 12,
+  "stoppingGainProbability": 0.3333333333333333,
+  "stoppingProbabilitySamples": 3600
+}
