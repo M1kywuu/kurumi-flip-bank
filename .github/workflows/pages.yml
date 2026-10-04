@@ -35,6 +35,8 @@ jobs:
         run: npm run check
       - name: Check cabinet geometry
         run: npm run check:shell
+      - name: Check celebrations, liquidation and touch picking
+        run: npm run check:feedback
       - name: Build game
         run: npm run build
         env:

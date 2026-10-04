@@ -1,15 +1,17 @@
+import { WinConfetti } from './celebration.js';
 // Presentation stays separate from the physical machine and interchangeable pages.
 export class ToyPresentation {
   constructor(theme, reducedMotion) {
     this.canvas = document.getElementById('ambient-chart');
     this.overlay = document.getElementById('loss-cut');
     this.reducedMotion = reducedMotion;
+    this.confetti = new WinConfetti(document.querySelector('.scene-window'), reducedMotion);
     document.getElementById('loss-dismiss').addEventListener('click', () => this.closeLoss());
     window.addEventListener('keydown', event => { if (event.key === 'Escape') this.closeLoss(); });
     this.setTheme(theme);
   }
   setTheme(theme) {
-    this.closeLoss(); this.theme = theme; this.page = -1;
+    this.closeLoss(); this.closeCelebration(); this.theme = theme; this.page = -1;
     document.body.dataset.theme = theme.id;
     this.canvas.hidden = theme.id !== 'kurumi';
     if (theme.id === 'kurumi') {
@@ -36,6 +38,7 @@ export class ToyPresentation {
   }
   showLoss() {
     if (this.theme.id !== 'kurumi') return;
+    this.closeCelebration();
     clearTimeout(this.lossTimer);
     this.overlay.hidden = false;
     this.lossTimer = setTimeout(() => this.closeLoss(), 2600);
@@ -44,4 +47,6 @@ export class ToyPresentation {
     clearTimeout(this.lossTimer);
     this.overlay.hidden = true;
   }
+  celebrate(profile) { this.confetti.show(profile); }
+  closeCelebration() { this.confetti.close(); }
 }

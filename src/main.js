@@ -13,7 +13,9 @@ import { CoinPhysics } from './physics.js';
 import { createPageTextures } from './textures.js';
 import { KURUMI_THEME, validateTheme } from './themes.js';
 import { ToySound } from './sound.js';
-import { characterMood, characterLine, MARKET_COLORS } from './story.js';
+import { celebrationFor } from './celebration.js';
+import { touchCoinHit } from './interaction.js';
+import { characterMood, characterLine, MARKET_COLORS, shouldLiquidate } from './story.js';
 
 const $ = (id) => document.getElementById(id);
 const icons = {
@@ -25,7 +27,7 @@ const icons = {
   slow: '<circle cx="12" cy="13" r="8"/><path d="M12 9v5l3 2M9 2h6"/>',
 };
 const svg = (name) => `<svg viewBox="0 0 24 24" aria-hidden="true">${icons[name]}</svg>`;
-$('sound').innerHTML = svg('mute'); $('settings').innerHTML = svg('settings');
+$('sound').innerHTML = svg('sound'); $('sound').setAttribute('aria-pressed', 'true'); $('sound').setAttribute('aria-label', '关闭声音'); $('settings').innerHTML = svg('settings');
 $('front').innerHTML = `${svg('front')}正面`;
 $('inside').innerHTML = `${svg('inside')}偷看一下`;
 $('slow').innerHTML = `${svg('slow')}慢慢翻`;
@@ -91,7 +93,7 @@ async function start() {
   const physics = await CoinPhysics.create(machine.colliders);
   let state = 'idle', position = 0, activePlan = null, elapsed = 0, insertion = null;
   let slow = false, cameraMotion = null, previousTime = performance.now(), hidden = false;
-  let acceptedCount = 0, observedPages = new Set(), clickIndex = 0, userPages = [];
+  let acceptedCount = 0, observedPages = new Set(), clickIndex = 0, userPages = [], hasLiquidated = false;
   let transitionBusy = false;
   let shownValue = NaN, ledgerMood = -1, speechTime = -1, simTime = 0, lastMarketPage = 0, impactTime = -10, impactTimer;
   const lastImpactByKind = { gain: -10, loss: -10 };
@@ -102,7 +104,7 @@ async function start() {
     if (theme.id !== 'kurumi') return;
     const mood = characterMood(value);
     if (finished || (mood !== ledgerMood && simTime - speechTime > .28)) {
-      $('quote').textContent = characterLine(value, { peeking: machine.open && state === 'idle', coins: acceptedCount, finished });
+      $('quote').textContent = characterLine(value, { peeking: machine.open && state === 'idle', coins: acceptedCount, finished, liquidated: hasLiquidated });
       speechTime = simTime; ledgerMood = mood;
     }
   }
@@ -125,7 +127,6 @@ async function start() {
     $('impact').classList.remove('hit'); void $('impact').offsetWidth; $('impact').classList.add('hit');
     clearTimeout(impactTimer);
     impactTimer = setTimeout(() => { $('impact').classList.remove('hit'); $('impact').textContent = ''; }, 720);
-    if (kind === 'loss') audio.crash(); else audio.gain();
   }
   function displayState(next, page = null) {
     state = next; viewport.dataset.state = next; viewport.setAttribute('aria-busy', String(next !== 'idle'));
@@ -143,7 +144,7 @@ async function start() {
     }
   }
   function startRotation(target, manual = false) {
-    presentation.closeLoss();
+    presentation.closeLoss(); presentation.closeCelebration(); audio.stopCelebration(); audio.unlock().catch(() => {});
     activePlan = planRotation(position, target, { count: machine.dim.count, peakRate: manual ? 1.6 : 10, fullTurn: false, minimumSteps: 8, minimumDuration: manual ? 0 : 8 });
     if (manual) { activePlan.steps = 1; activePlan.end = position + 1; activePlan.duration = 1.2; }
     elapsed = 0; clickIndex = Math.floor(position); lastMarketPage = machine.page;
@@ -152,7 +153,7 @@ async function start() {
   function insertCoin(fromZ = machine.readyCoin.position.z) {
     if (state !== 'idle' || transitionBusy) return false;
     if (physics.coins.length >= 32) { announce('硬币仓已经装满了。在设置中可以重新开始。'); $('quote').textContent = '小金库装满了！'; return false; }
-    controls.enabled = true; presentation.closeLoss();
+    controls.enabled = true; presentation.closeLoss(); presentation.closeCelebration(); audio.stopCelebration(); audio.unlock().catch(() => {});
     insertion = { mesh: machine.readyCoin, fromZ, elapsed: 0, released: false, target: randomPage(machine.dim.count, Math.random, theme.stopWeights) };
     displayState('inserting'); return true;
   }
@@ -197,13 +198,15 @@ async function start() {
     pointer.set((event.clientX - rect.left) / rect.width * 2 - 1, -(event.clientY - rect.top) / rect.height * 2 + 1);
     raycaster.setFromCamera(pointer, camera); return raycaster;
   };
-  const pickedAction = (event) => {
+  const pickedAction = (event, enlarged = true) => {
     const hits = rayAt(event).intersectObject(machine.group, true).filter(hit => {
       let object = hit.object;
       while (object) { if (!object.visible) return false; object = object.parent; }
       return true;
     });
-    return hits[0]?.object.userData.action;
+    const action = hits[0]?.object.userData.action;
+    if (action) return action;
+    if (enlarged && touchCoinHit(event, machine.readyCoin, camera, machine.group, renderer.domElement.getBoundingClientRect())) return 'coin';
   };
   machine.knob.traverse(o => { if (o.isMesh) o.userData.action = 'step'; });
   // Capture-phase arbitration gives the physical coin priority over the orbit camera.
@@ -214,7 +217,9 @@ async function start() {
     pressed = { action, x: event.clientX, y: event.clientY, id: event.pointerId };
     if (action === 'coin') {
       controls.enabled = false; event.stopImmediatePropagation(); renderer.domElement.setPointerCapture(event.pointerId);
-      coinDrag = { id: event.pointerId, fromZ: machine.readyCoin.position.z, downX: event.clientX, downY: event.clientY, moved: false };
+      const plane = new THREE.Plane(new THREE.Vector3(0, 1, 0), -DIM.slotY);
+      const hit = rayAt(event).ray.intersectPlane(plane, new THREE.Vector3());
+      coinDrag = { id: event.pointerId, fromZ: machine.readyCoin.position.z, planeZ: hit?.z, downX: event.clientX, downY: event.clientY, moved: false };
     }
   }, true);
   renderer.domElement.addEventListener('pointermove', (event) => {
@@ -223,11 +228,11 @@ async function start() {
       coinDrag.moved ||= distance > 4;
       const dragPlane = new THREE.Plane(new THREE.Vector3(0, 1, 0), -DIM.slotY);
       const hit = rayAt(event).ray.intersectPlane(dragPlane, new THREE.Vector3());
-      if (hit) machine.readyCoin.position.z = clamp(hit.z, .052, .09);
+      if (hit && Number.isFinite(coinDrag.planeZ)) machine.readyCoin.position.z = clamp(coinDrag.fromZ + hit.z - coinDrag.planeZ, .052, .09);
       renderer.domElement.style.cursor = 'grabbing'; event.stopImmediatePropagation(); return;
     }
     if (state !== 'idle') { renderer.domElement.style.cursor = 'grab'; return; }
-    renderer.domElement.style.cursor = pickedAction(event) ? 'pointer' : 'grab';
+    renderer.domElement.style.cursor = pickedAction(event, false) ? 'pointer' : 'grab';
   }, true);
   function endPointer(event, cancelled = false) {
     if (coinDrag?.id === event.pointerId) {
@@ -248,7 +253,7 @@ async function start() {
 
   async function setTheme(next) {
     if (state !== 'idle' || transitionBusy) throw new Error('请等当前翻页停好，再换画页。');
-    validateTheme(next); transitionBusy = true; $('insert').disabled = true;
+    validateTheme(next); presentation.closeCelebration(); audio.stopCelebration(); transitionBusy = true; $('insert').disabled = true;
     try {
       const textures = await createPageTextures(next); machine.setPages(textures); theme = next; observedPages = new Set(); position = mod(Math.round(position), machine.dim.count); machine.update(position);
       shownValue = NaN; ledgerMood = -1; presentation.setTheme(next);
@@ -286,7 +291,7 @@ async function start() {
   });
   $('restart').addEventListener('click', () => {
     if (state !== 'idle') { $('upload-feedback').textContent = '请等当前翻页结束，再重新开始。'; return; }
-    physics.clear(); acceptedCount = 0; observedPages.clear();
+    physics.clear(); acceptedCount = 0; hasLiquidated = false; observedPages.clear();
     $('coin-count').textContent = '00'; $('collection-label').textContent = `0 / ${machine.dim.count} 个结果`;
     displayState('idle', theme.pages[machine.page]);
     $('upload-feedback').textContent = '已经清空硬币，重新开始。'; announce('已经重新开始。');
@@ -298,7 +303,7 @@ async function start() {
   new ResizeObserver(resize).observe(viewport); resize();
   document.addEventListener('visibilitychange', () => {
     hidden = document.hidden; previousTime = performance.now(); physics.clock = 0;
-    if (hidden) audio.context?.suspend(); else if (audio.enabled) audio.context?.resume();
+    if (hidden) { audio.stopCelebration(); presentation.closeCelebration(); audio.context?.suspend(); } else if (audio.enabled) audio.context?.resume();
   });
   renderer.domElement.addEventListener('webglcontextlost', (event) => {
     event.preventDefault(); hidden = true; $('fallback').hidden = false; $('insert').disabled = true;
@@ -317,7 +322,7 @@ async function start() {
       if (u >= 1) {
         insertion.released = true; const pending = insertion;
         physics.release(pending.mesh, () => {
-          acceptedCount++; $('coin-count').textContent = String(acceptedCount).padStart(2, '0'); audio.coin();
+          acceptedCount++; hasLiquidated = false; $('coin-count').textContent = String(acceptedCount).padStart(2, '0'); audio.coin();
           startRotation(pending.target); insertion = null;
         });
       }
@@ -358,11 +363,19 @@ async function start() {
           observedPages.add(page); $('collection-label').textContent = `${observedPages.size} / ${machine.dim.count} 个结果`;
           machine.replaceReadyCoin();
         }
-        displayState('idle', theme.pages[page]);
-        if (Number.isFinite(theme.pages[page].value) && theme.pages[page].value < -120) {
-          impact('loss', '', true); presentation.showLoss();
+        const liquidated = shouldLiquidate(theme.pages[page].value);
+        const celebration = celebrationFor(theme.pages[page].value);
+        if (liquidated) {
+          audio.stopCelebration(); presentation.closeCelebration();
+          physics.clear(); acceptedCount = 0; hasLiquidated = true; $('coin-count').textContent = '00';
         }
-        announce(`停在第 ${page + 1} 页。${theme.pages[page].note || theme.pages[page].label || ''}`);
+        displayState('idle', theme.pages[page]);
+        if (liquidated) {
+          impact('loss', '', true); presentation.showLoss();
+        } else if (celebration) {
+          presentation.celebrate(celebration); audio.celebrate(celebration).catch(() => {});
+        }
+        announce(liquidated ? '强制平仓，小金库清空了。' : `停在第 ${page + 1} 页。${theme.pages[page].note || theme.pages[page].label || ''}`);
       }
     }
     if (cameraMotion) {

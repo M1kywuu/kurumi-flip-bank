@@ -6,7 +6,9 @@
 - Three.js：MIT，许可证见 `licenses/three.txt`。
 - Rapier：Apache-2.0，许可证见 `licenses/rapier.txt`。
 - Vite：网页构建工具。
-- 音效为项目内合成；文字、模型、木纹和画页图表由项目代码生成。
+- 投币和翻页音效为项目内合成；文字、模型、木纹和画页图表由项目代码生成。
+- 掌声：qubodup 的 [Well Done](https://opengameart.org/content/well-done)，CC0（作者于 2024-10-05 改为 CC0，原文件名仍含 CCBY3）。截取、调音并转为 `public/assets/audio/applause.mp3`。
+- 欢呼：AuraVoice / Nocturnal_Vanguard 的 [Cheers](https://opengameart.org/content/cheers-0)，CC0。调音并转为 `public/assets/audio/cheers.mp3`。
 
 - 视觉参考：[FX战士久留美动画官网](https://fxkurumi-info.com/)。成品使用自行编写的CSS、背景蜡烛图和SVG星芒。
 - M PLUS 1、Cherry Bomb One：经Fontsource 5.3.0随包提供，SIL Open Font License，见 `licenses/m-plus-1.txt` 与 `licenses/cherry-bomb-one.txt`。数值用M PLUS 1的Latin子集，日文短标签用Cherry Bomb One，中文由系统字体显示。

@@ -54,3 +54,5 @@ button:focus-visible,a:focus-visible,#viewport:focus-visible{outline:3px solid #
 .shell-choices{grid-template-columns:repeat(3,minmax(0,1fr))}.shell-choice{flex-direction:column;gap:8px;padding:12px 8px;font-size:13px}.cream-swatch{background:repeating-linear-gradient(135deg,#fff2d4 0 6px,#f6b4cd 6px 9px);border:1px solid #ed9fb9}
 
 .site-footer{justify-content:space-between}.creator-credit{font-size:11px;color:#a36681;letter-spacing:.03em}.about-dialog .about-banter{font-weight:700;color:#ad3f70;line-height:2}.about-links{font-size:13px;line-height:2}
+
+.win-confetti{position:absolute;inset:0;width:100%;height:100%;z-index:6;pointer-events:none}.win-confetti[hidden]{display:none}

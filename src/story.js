@@ -77,7 +77,11 @@ export function characterMood(value) {
   if (value >= -120) return 6;
   return 7;
 }
-export function characterLine(value, { peeking = false, coins = 0, finished = false } = {}) {
+export function shouldLiquidate(value) {
+  return Number.isFinite(value) && Math.round(value) <= -100;
+}
+export function characterLine(value, { peeking = false, coins = 0, finished = false, liquidated = false } = {}) {
+  if (peeking && liquidated) return '……真的一枚都没了。';
   if (peeking && coins) return value < 0 ? '还好，硬币一枚没少。' : '这些才是真正存下来的！';
   if (value >= 95) return '我是不是很有天赋？';
   if (value >= 65) return '看吧，我就知道会涨！';
